@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQLite Data</title>
+</head>
+<body>
+    <h1>Data from SQLite Database</h1>
+    <p>Number of rows: {{num_rows}}</p>
+    <ul>
+        {% for row in data %}
+            <li>{{ row[0] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+<table>
+ 

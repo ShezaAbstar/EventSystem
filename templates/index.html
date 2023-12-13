@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Make your booking</title>
+</head>
+<style>
+  #content {
+    border:1px solid black;
+}
+
+#left {
+    float:left;
+    width: 50%;
+    border-right:1px solid black;
+}
+#right {
+    float:right;
+    width: 50%;
+}
+#bottom {
+    bottom:5px solid black;
+    clear: both;
+}
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+<body>
+  <h1>Zoo events booking system</h1>
+  <div id="content">
+    <div id="top">
+      <div class="container">
+        <p class="h3">There are  {{num_rows}} scheduled Events ..to choose from </p>
+        <table border="1">
+          <tr>
+            <th>Name</th>
+            <th>Information</td>
+          </tr>
+          {% for event in data %}
+          <tr>
+            <td>{{ event[0] }}</td>
+            <td>{{ event[1] }}</td>
+            <td>
+              <img src="{{url_for('static', filename='images/' )}}{{ event[7]}}" />
+            </td>
+            <td>
+              <table>
+                <tr>
+                  <th>Family Price</th>
+                  <th>Adult Price</th>
+                  <th>Child Price</th>
+                </tr>
+                <tr>
+                  <td>{{ event[4] }}</td>
+                  <td>{{ event[5] }}</td>
+                  <td>{{ event[6] }}</td>
+                </tr>
+            </table>
+            </td>
+            <td>
+              <form action="{{ url_for('makebooking') }}" method="GET">
+                <input id="my_submit" type="hidden" value="{{event[8]}}" name="event_id">
+                <input id="my_submit" type="submit" value="View" >
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+    <div id="bottom">
+        We are located in the natural forest of Suffolk surrouded by woods providing the natural habitat for our wild life.
+    </div>
+  </div>
+</body>
+</html>

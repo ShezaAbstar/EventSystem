@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Zoo events Booking System</title>
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/" />
+    </head>
+  <body>
+    <div class="container">
+      <h1>The details of your chosen event for booking</h1>
+      <form action="{{ url_for('makebooking') }}" method="POST">
+        <table>
+          <tr><td>
+            <input id="event_id" type="hidden" name="event_id" value="{{eventData[0][8]}}">
+          </td></tr>
+          <tr>
+              <td>Event Name:</td>
+              <td><input id="name" name="name" type="text"  value="{{eventData[0][0]}}" readonly/></td>
+          </tr>
+          <tr>
+            <td>Event details:</td>
+            <td><textarea id="EventDesc" name="EventDesc" rows="3" cols="100" readonly>{{eventData[0][1]}}</textarea></td>
+          </tr>
+          <tr>
+            <td>Number of Guests:</td>
+            <td> <input id="guestCountId" type="text" name="Guest_count"></td>
+          </tr>
+          <tr>
+            <td>Customer Name:</td>
+            <td> <input id="CustomerNameId" type="text" name="Customer_name"></td>
+          </tr>
+          <tr>
+            <td>Customer Email:</td>
+            <td> <input id="Email_Id" type="text" name="Email"></td>
+          </tr>
+          <tr>
+            <td><input type="submit" name="Book" value="Book"></td>
+          </tr>      
+      </table>
+    </form>
+  </body>
+</html>
