@@ -61,10 +61,12 @@
     </style>
   <div class="container">
     <h1>The details of your chosen event for booking</h1>
+    <div>
+      <h4>Event details : {{ event[0] }}</h4>
+    </div>
     <form action="{{ url_for('login') }}" method="post">
       <div class="imgcontainer">
-        <img src="{{url_for('static', filename='images/' )}}img_avatar.png" />
-        <!-- <img src="img_avatar.png" alt="Avatar" class="avatar"> -->
+        <img src="{{url_for('static', filename='images/' )}}img_avatar.png" width="200" height="200" />
       </div>   
       <div class="container">
         <label for="uname"><b>Username</b></label>
@@ -76,10 +78,16 @@
           <input type="checkbox" checked="checked" name="remember"> Remember me
         </label>
       </div>
-    
+      {% if error == 1 %}
+      <div>
+        <h3>Login error - username and password do not match</h3>
+      </div>
+      {% endif %}
       <div class="container" style="background-color:#f1f1f1">
         <button type="button" class="cancelbtn">Cancel</button>
-        <span class="psw">Forgot <a href="#">password?</a></span>
+        <a href="{{url_for('register')}}">Register</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#">Forgot password?</a>
       </div>
     </form>
   </div>

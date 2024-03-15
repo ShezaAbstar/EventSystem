@@ -7,6 +7,7 @@
 <body>
     <div class="container">
       <h1>Thank you for your booking. These are the details of your booking</h1>
+      <h2><a href="http://127.0.0.1:5000/" >Go home</a></h2>
       <table>
         <tr>
           <td>Event Details:</td>
@@ -23,6 +24,10 @@
         <tr>
           <td>Number of Guests</td>
           <td>{{bookingData[0][4]}}</td>
+        </tr>
+        <tr>
+          <td>Total Price</td>
+          <td>{{bookingData[0][5]}}</td>
         </tr>
         <tr>
           <td>Booking reference</td>
